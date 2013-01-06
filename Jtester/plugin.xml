@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	
+	<extension point="org.eclipse.ui.perspectives">
+		<perspective	
+			name="Jtester"
+      		id="plugin.ui.perspective.JtesterPerspective"
+      		class="plugin.ui.perspective.JtesterPerspective">
+      </perspective>
+	</extension>
+	
+	
+	<extension point="org.eclipse.ui.views">
+		<category
+			name="Jtester"
+			id="ui.views">
+		</category>
+
+		<view
+			name="Data FLow Analysis"
+			id="plugin.ui.view.data_flow.DataFlowView"
+			category="ui.views"
+			class="plugin.ui.view.data_flow.DataFlowView">
+		</view>	
+	</extension>
+	
+	 <extension point="org.eclipse.ui.actionSets">
+	 	<actionSet 
+	 		label="SA Action Set"
+	 		visible="true"
+	 		id="ui.actionset">
+	 		<menu
+	 			label="Jtester"
+	 			id="ui.actionset.entry">
+	 			<separator
+	 				name="entry">
+	 			</separator>
+	 		</menu>
+	 		<menu
+            	path="ui.actionset.entry/entry"
+            	label="Analyze Using..."
+            	id="ui.actionset.select">
+            	<separator
+            		name="select">
+            	</separator>
+            </menu>
+            <menu
+            	path="ui.actionset.entry/ui.actionset.select/select"
+            	label="builtin"
+            	id="ui.actionset.builtin">
+            	<separator
+            		name="builtin">
+            	</separator>
+            </menu>
+            
+            <action
+               label="all..."
+               class="plugin.run.Jtester"
+               menubarPath="ui.actionset.entry/ui.actionset.select/select"
+               enablesFor="1"
+               id="plugin.run.Jtester">
+         	</action>
+            
+	 	</actionSet>
+	 </extension>
+</plugin>
